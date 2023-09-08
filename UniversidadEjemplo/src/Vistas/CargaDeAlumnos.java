@@ -89,9 +89,9 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jtDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                jtDocumentoActionPerformed(evt);
             }
         });
 
@@ -190,22 +190,23 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
+        //busca por dni
         int dni = Integer.parseInt(jtDocumento.getText());
-        Alumno alumno = con.buscarAlumnoPorDni(dni);
+        //Alumno alumno = con.buscarAlumnoPorDni(dni);
 
-        if (Integer.parseInt(jtDocumento.getText()) == (alumno.getDni())) {
-            jtApellido.setText(alumno.getApellido());
-            jtNombre.setText(alumno.getNombre());
-            cbEstado.setSelected(alumno.isActivo());
-            dcFecha.setDate(Date.valueOf(alumno.getFechaNac()));
-
-        }
+//        if (Integer.parseInt(jtDocumento.getText()) == (alumno.getDni())) {
+//            jtApellido.setText(alumno.getApellido());
+//            jtNombre.setText(alumno.getNombre());
+//            cbEstado.setSelected(alumno.isActivo());
+//            dcFecha.setDate(Date.valueOf(alumno.getFechaNac()));
+//
+//        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void jtDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDocumentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_jtDocumentoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
