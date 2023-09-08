@@ -27,10 +27,10 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jBNuevo" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlCodigo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlAno" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlEstado" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="109" max="32767" attributes="0"/>
@@ -63,7 +63,7 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="226" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <Component id="jlMaterias" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -72,26 +72,26 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <Component id="jlMaterias" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTCodigo" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="jBBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTNombre" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlNombre" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="54" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlAno" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTAño" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jREstado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
@@ -107,7 +107,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="jlMaterias">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="DialogInput" size="36" style="1"/>
@@ -123,7 +123,7 @@
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jlCodigo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Codigo:"/>
       </Properties>
@@ -140,7 +140,7 @@
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="jlNombre">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre:"/>
       </Properties>
@@ -153,7 +153,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBNuevoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="jlEstado">
       <Properties>
         <Property name="text" type="java.lang.String" value="Estado"/>
       </Properties>
@@ -163,7 +163,7 @@
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="jlAno">
       <Properties>
         <Property name="text" type="java.lang.String" value="A&#xf1;o:"/>
       </Properties>

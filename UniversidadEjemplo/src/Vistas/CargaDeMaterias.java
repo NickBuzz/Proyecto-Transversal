@@ -27,30 +27,30 @@ public class CargaDeMaterias extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        jlMaterias = new javax.swing.JLabel();
         jBBuscar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jlCodigo = new javax.swing.JLabel();
         jTNombre = new javax.swing.JTextField();
         jTCodigo = new javax.swing.JTextField();
         jBEliminar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jlNombre = new javax.swing.JLabel();
         jBNuevo = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jlEstado = new javax.swing.JLabel();
         jBGuardar = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        jlAno = new javax.swing.JLabel();
         jBSalir = new javax.swing.JButton();
         jTAño = new javax.swing.JTextField();
         jREstado = new javax.swing.JRadioButton();
 
         setClosable(true);
 
-        jLabel2.setFont(new java.awt.Font("DialogInput", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel2.setText("Materias");
+        jlMaterias.setFont(new java.awt.Font("DialogInput", 1, 36)); // NOI18N
+        jlMaterias.setForeground(new java.awt.Color(0, 0, 255));
+        jlMaterias.setText("Materias");
 
         jBBuscar.setText("Buscar");
 
-        jLabel1.setText("Codigo:");
+        jlCodigo.setText("Codigo:");
 
         jTCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,7 +60,7 @@ public class CargaDeMaterias extends javax.swing.JInternalFrame {
 
         jBEliminar.setText("Eliminar");
 
-        jLabel4.setText("Nombre:");
+        jlNombre.setText("Nombre:");
 
         jBNuevo.setText("Nuevo");
         jBNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -69,11 +69,11 @@ public class CargaDeMaterias extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel5.setText("Estado");
+        jlEstado.setText("Estado");
 
         jBGuardar.setText("Guardar");
 
-        jLabel6.setText("Año:");
+        jlAno.setText("Año:");
 
         jBSalir.setText("Salir");
 
@@ -88,10 +88,10 @@ public class CargaDeMaterias extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jBNuevo)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel4)))
+                        .addComponent(jlCodigo)
+                        .addComponent(jlAno)
+                        .addComponent(jlEstado)
+                        .addComponent(jlNombre)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -115,30 +115,30 @@ public class CargaDeMaterias extends javax.swing.JInternalFrame {
                         .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
                 .addGap(226, 226, 226)
-                .addComponent(jLabel2)
+                .addComponent(jlMaterias)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel2)
+                .addComponent(jlMaterias)
                 .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jlCodigo)
                     .addComponent(jTCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBBuscar))
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jlNombre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(jlAno)
                     .addComponent(jTAño, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(jlEstado)
                     .addComponent(jREstado))
                 .addGap(153, 153, 153)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -167,14 +167,14 @@ public class CargaDeMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBGuardar;
     private javax.swing.JButton jBNuevo;
     private javax.swing.JButton jBSalir;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JRadioButton jREstado;
     private javax.swing.JTextField jTAño;
     private javax.swing.JTextField jTCodigo;
     private javax.swing.JTextField jTNombre;
+    private javax.swing.JLabel jlAno;
+    private javax.swing.JLabel jlCodigo;
+    private javax.swing.JLabel jlEstado;
+    private javax.swing.JLabel jlMaterias;
+    private javax.swing.JLabel jlNombre;
     // End of variables declaration//GEN-END:variables
 }
