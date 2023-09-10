@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package AccesoADatos;
 
 import Entidades.Alumno;
@@ -16,10 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
 
-/**
- *
- * @author Oking
- */
+
 public class AlumnoData {
 
     private Connection con = null;
@@ -61,6 +54,7 @@ public class AlumnoData {
         }
 
     }
+    
 
     //Metodo para cambiar los atributos de alumno
     public void modificarAlumno(Alumno alumno) {
