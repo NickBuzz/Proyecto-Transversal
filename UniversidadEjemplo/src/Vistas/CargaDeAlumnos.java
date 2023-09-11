@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import AccesoADatos.AlumnoData;
 import Entidades.Alumno;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -16,13 +17,16 @@ import java.time.ZoneId;
  */
 public class CargaDeAlumnos extends javax.swing.JInternalFrame {
 
+    private AlumnoData ad;
     Alumno alumno;
 
     /**
      * Creates new form CargaDeAlumnos
+     * @param ad
      */
-    public CargaDeAlumnos() {
+    public CargaDeAlumnos(AlumnoData ad) {
         initComponents();
+        this.ad = ad;
         jbEliminar.setEnabled(false);
         jbGuardar.setEnabled(false);
     }
@@ -217,14 +221,14 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
 
         //busca por dni
         int dni = Integer.parseInt(jtDocumento.getText());
-        //alumno = con.buscarAlumnoPorDni(dni);
+        alumno = ad.buscarAlumnoPorDni(dni);
         if (Integer.parseInt(jtDocumento.getText()) == (alumno.getDni())) {
             jtApellido.setText(alumno.getApellido());
             jtNombre.setText(alumno.getNombre());
             cbEstado.setSelected(alumno.isActivo());
             dcFecha.setDate(Date.valueOf(alumno.getFechaNac()));
             jbEliminar.setEnabled(true);
-            
+
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
@@ -242,7 +246,7 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
             boolean act = cbEstado.isSelected();
             LocalDate dat = dcFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-            //con.guardarAlumno(new Alumno(dni, ape, nom, dat, act));
+            ad.guardarAlumno(new Alumno(dni, ape, nom, dat, act));
             limpiarCampos();
             jbGuardar.setEnabled(false);
         }
@@ -257,7 +261,7 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         //Elimina alumno despues de buscar por dni.
 
-        //con.eliminarAlumno(alumno.getIdAlumno());
+        ad.eliminarAlumno(alumno.getIdAlumno());
         limpiarCampos();
         jbEliminar.setEnabled(false);
     }//GEN-LAST:event_jbEliminarActionPerformed
