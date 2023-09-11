@@ -10,6 +10,7 @@ import Entidades.Alumno;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +23,7 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CargaDeAlumnos
+     *
      * @param ad
      */
     public CargaDeAlumnos(AlumnoData ad) {
@@ -99,6 +101,12 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
         jLabel5.setText("Estado");
 
         jLabel4.setText("Nombre");
+
+        jtDocumento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtDocumentoKeyTyped(evt);
+            }
+        });
 
         jLabel1.setText("Documento: ");
 
@@ -220,15 +228,24 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         //busca por dni
-        int dni = Integer.parseInt(jtDocumento.getText());
-        alumno = ad.buscarAlumnoPorDni(dni);
-        if (Integer.parseInt(jtDocumento.getText()) == (alumno.getDni())) {
-            jtApellido.setText(alumno.getApellido());
-            jtNombre.setText(alumno.getNombre());
-            cbEstado.setSelected(alumno.isActivo());
-            dcFecha.setDate(Date.valueOf(alumno.getFechaNac()));
-            jbEliminar.setEnabled(true);
+        if (!jtDocumento.getText().isEmpty()) {
+            int dni = Integer.parseInt(jtDocumento.getText());
+            alumno = ad.buscarAlumnoPorDni(dni);
+            try {
+                if (Integer.parseInt(jtDocumento.getText()) == (alumno.getDni())) {
+                jtApellido.setText(alumno.getApellido());
+                jtNombre.setText(alumno.getNombre());
+                cbEstado.setSelected(alumno.isActivo());
+                dcFecha.setDate(Date.valueOf(alumno.getFechaNac()));
+                jbEliminar.setEnabled(true);
 
+            }
+            } catch (NullPointerException e) {
+                System.out.println(e);
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe ingresar un DNI.");
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
@@ -265,6 +282,14 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
         limpiarCampos();
         jbEliminar.setEnabled(false);
     }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jtDocumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDocumentoKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtDocumentoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
