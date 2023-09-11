@@ -5,17 +5,28 @@
  */
 package Vistas;
 
+import AccesoADatos.AlumnoData;
+import AccesoADatos.InscripcionData;
+import AccesoADatos.MateriaData;
+
 /**
  *
  * @author Oking
  */
 public class Menu extends javax.swing.JFrame {
 
+    private AlumnoData ad;
+    private MateriaData md;
+    private InscripcionData id;
     /**
      * Creates new form Menu
      */
     public Menu() {
         initComponents();
+        ad = new AlumnoData();
+        md = new MateriaData();
+        id = new InscripcionData();
+        
     }
 
     /**
@@ -148,7 +159,7 @@ public class Menu extends javax.swing.JFrame {
     private void jMFormAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormAlumActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        CargaDeAlumnos ca = new CargaDeAlumnos();
+        CargaDeAlumnos ca = new CargaDeAlumnos(ad);
         ca.setVisible(true);
         escritorio.add(ca);
         escritorio.moveToFront(ca);

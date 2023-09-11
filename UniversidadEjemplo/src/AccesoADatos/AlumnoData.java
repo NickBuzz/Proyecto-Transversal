@@ -9,8 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
 
@@ -28,7 +26,7 @@ public class AlumnoData {
     //Metodo para agregar nuevos alumnos
     public void guardarAlumno(Alumno alumno) {
 
-        String sql = "INSERT INTO alumno(dni, apellido, nombre, fechaNacimiento, estado)"
+        String sql = "INSERT INTO alumno(dni, apellido, nombre, fechaNac, estado)"
                 + "VALUES (?, ?, ?, ?, ?)";
 
         try {
@@ -61,7 +59,7 @@ public class AlumnoData {
     //Metodo para cambiar los atributos de alumno
     public void modificarAlumno(Alumno alumno) {
 
-        String sql = "UPDATE alumno SET dni =?, apellido =?, nombre =?, fechaNacimiento =?"
+        String sql = "UPDATE alumno SET dni =?, apellido =?, nombre =?, fechaNac =?"
                 + "WHERE idAlumno =?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -104,7 +102,7 @@ public class AlumnoData {
     //Metodo para buscar alumno por id
     public Alumno buscarAlumno(int id) {
         Alumno alumno = null;
-        String sql = "SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = 1";
+        String sql = "SELECT dni, apellido, nombre, fechaNac FROM alumno WHERE idAlumno = ? AND estado = 1";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
@@ -117,7 +115,7 @@ public class AlumnoData {
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
-                alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+                alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
                 alumno.setActivo(true);
 
             } else {
@@ -135,7 +133,7 @@ public class AlumnoData {
     //Metodo para buscar Alumno por dni
     public Alumno buscarAlumnoPorDni(int dni) {
         Alumno alumno = null;
-        String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni=? AND estado = 1";
+        String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNac FROM alumno WHERE dni=? AND estado = 1";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
@@ -147,7 +145,7 @@ public class AlumnoData {
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
-                alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+                alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
                 alumno.setActivo(true);
 
             } else {
@@ -177,7 +175,7 @@ public class AlumnoData {
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
-                alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+                alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
                 alumno.setActivo(rs.getBoolean("estado"));
                 alumnos.add(alumno);
             }
