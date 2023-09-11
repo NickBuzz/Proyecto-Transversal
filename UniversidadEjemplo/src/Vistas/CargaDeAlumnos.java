@@ -245,8 +245,8 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
             String nom = jtNombre.getText();
             boolean act = cbEstado.isSelected();
             LocalDate dat = dcFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-            ad.guardarAlumno(new Alumno(dni, ape, nom, dat, act));
+            alumno = new Alumno(dni, ape, nom, dat, act);
+            ad.guardarAlumno(alumno);
             limpiarCampos();
             jbGuardar.setEnabled(false);
         }
