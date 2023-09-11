@@ -131,15 +131,19 @@ String sql="SELECT * FROM materia WHERE estado=1";
               materia.setAnioMateria(rs.getInt("año"));
               materia.setActivo(rs.getBoolean("estado"));
               materias.add(materia);
-              
-                
+               System.out.println("esta es la materia: " + materia);
+         
                 
             }
             ps.close();
         } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla materia"+ex.getMessage());
         }
+               System.out.println("estas son las materias: " + materias);
 
 return materias;
     }
+    
+  
+    
 }
