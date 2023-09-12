@@ -50,9 +50,9 @@ public class MateriaData {
 
     }
 
-    public void buscarMateria(int id) {
+    public Materia buscarMateria(int id) {
         Materia materia = null;
-        String sql = "SELECT nombre ,año,estado FROM materia WHERE idMateria=? AND estado=1";
+        String sql = "SELECT nombre , año, estado FROM materia WHERE idMateria=? AND estado=1";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
@@ -75,6 +75,8 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null, "error al acceder a la tabla materia" + ex.getMessage());
         }
 
+        return materia;
+        
     }
 
     public void modificarMateria(Materia materia) {
@@ -118,28 +120,26 @@ public class MateriaData {
     }
 
     public List<Materia> ListarMaterias() {
-List<Materia> materias=new ArrayList<>();
-String sql="SELECT * FROM materia WHERE estado=1";
+        List<Materia> materias = new ArrayList<>();
+        String sql = "SELECT * FROM materia WHERE estado=1";
         try {
-            PreparedStatement ps=con.prepareStatement(sql);
-            ResultSet rs=ps.executeQuery();
-            while(rs.next()){
-              Materia materia=new Materia();
-              
-              materia.setIdMateria(rs.getInt("idMateria"));
-              materia.setNombre(rs.getString("nombre"));
-              materia.setAnioMateria(rs.getInt("año"));
-              materia.setActivo(rs.getBoolean("estado"));
-              materias.add(materia);
-              
-                
-                
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Materia materia = new Materia();
+
+                materia.setIdMateria(rs.getInt("idMateria"));
+                materia.setNombre(rs.getString("nombre"));
+                materia.setAnioMateria(rs.getInt("año"));
+                materia.setActivo(rs.getBoolean("estado"));
+                materias.add(materia);
+
             }
             ps.close();
         } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null,"Error al acceder a la tabla materia"+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia" + ex.getMessage());
         }
 
-return materias;
+        return materias;
     }
 }
