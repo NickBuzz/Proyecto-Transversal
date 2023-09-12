@@ -91,7 +91,7 @@ public class MateriaData {
                 JOptionPane.showMessageDialog(null, "Modifiado exitosamente.");
 
             } else {
-                JOptionPane.showMessageDialog(null, "El alumno no existe");
+                JOptionPane.showMessageDialog(null, "la materia no existe");
             }
 
         } catch (SQLException ex) {
