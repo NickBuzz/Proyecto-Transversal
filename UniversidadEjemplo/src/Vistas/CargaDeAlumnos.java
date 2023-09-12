@@ -229,17 +229,6 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         //busca por dni
-<<<<<<< HEAD
-        int dni = Integer.parseInt(jtDocumento.getText());
-        //alumno = con.buscarAlumnoPorDni(dni);
-        if (Integer.parseInt(jtDocumento.getText()) == (alumno.getDni())) {
-            jtApellido.setText(alumno.getApellido());
-            jtNombre.setText(alumno.getNombre());
-            cbEstado.setSelected(alumno.isActivo());
-            dcFecha.setDate(Date.valueOf(alumno.getFechaNac()));
-            jbEliminar.setEnabled(true);
-
-=======
         if (!jtDocumento.getText().isEmpty()) {
             int dni = Integer.parseInt(jtDocumento.getText());
             alumno = ad.buscarAlumnoPorDni(dni);
@@ -258,7 +247,6 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
             
         }else{
             JOptionPane.showMessageDialog(null, "Debe ingresar un DNI.");
->>>>>>> d4c704f4f119c51ec95182911db6e8b83f53cafd
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
