@@ -139,7 +139,11 @@ public class MateriaData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia" + ex.getMessage());
         }
+               System.out.println("estas son las materias: " + materias);
 
         return materias;
     }
+    
+  
+    
 }
