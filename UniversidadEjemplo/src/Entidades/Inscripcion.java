@@ -23,6 +23,15 @@ public class Inscripcion {
         this.nota = nota;
     }
 
+    public Inscripcion(double nota) {
+        this.nota = nota;
+    }
+
+    public Inscripcion(Alumno alumno, Materia materia) {
+        this.alumno = alumno;
+        this.materia = materia;
+    }
+
     public int getIdIncripcion() {
         return idIncripcion;
     }

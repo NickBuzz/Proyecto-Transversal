@@ -150,7 +150,7 @@ public class Menu extends javax.swing.JFrame {
     private void jMInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMInscripcionesActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        FormularioDeInscripcion fi = new FormularioDeInscripcion();
+        FormularioDeInscripcion fi = new FormularioDeInscripcion(ad, md, id);
         fi.setVisible(true);
         escritorio.add(fi);
         escritorio.moveToFront(fi);

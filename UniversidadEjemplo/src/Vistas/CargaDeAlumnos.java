@@ -93,9 +93,9 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
         jLabel6.setText("Fecha de Nacimiento");
 
         cbEstado.setText("INACTIVO");
-        cbEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbEstadoActionPerformed(evt);
+        cbEstado.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                cbEstadoStateChanged(evt);
             }
         });
 
@@ -215,16 +215,6 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEstadoActionPerformed
-        // TODO add your handling code here:
-        jbGuardar.setEnabled(true);
-        if (cbEstado.isSelected()) {
-            cbEstado.setText("ACTIVO");
-        } else {
-            cbEstado.setText("INACTIVO");
-        }
-    }//GEN-LAST:event_cbEstadoActionPerformed
-
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
 
@@ -291,6 +281,16 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jtDocumentoKeyTyped
+
+    private void cbEstadoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cbEstadoStateChanged
+        // TODO add your handling code here:
+        jbGuardar.setEnabled(true);
+        if (cbEstado.isSelected()) {
+            cbEstado.setText("ACTIVO");
+        } else {
+            cbEstado.setText("INACTIVO");
+        }
+    }//GEN-LAST:event_cbEstadoStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
