@@ -53,6 +53,11 @@ public class ListadoDeAlumnosPorMateria extends javax.swing.JInternalFrame {
         });
 
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         jTAlumnosXMateria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -134,6 +139,10 @@ public class ListadoDeAlumnosPorMateria extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jCMateriasActionPerformed
 
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBSalir;
@@ -169,9 +178,11 @@ public class ListadoDeAlumnosPorMateria extends javax.swing.JInternalFrame {
 
         for (Alumno alumno : alumnos) {
             modelo.addRow(new Object[]{
+                alumno.getIdAlumno(),
+                alumno.getDni(),
                 alumno.getNombre(),
                 alumno.getApellido(),
-                alumno.getDni()
+                
 
             });
 
