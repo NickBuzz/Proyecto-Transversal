@@ -190,7 +190,7 @@ public class Menu extends javax.swing.JFrame {
     private void jMAlumnoXMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMAlumnoXMatActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        ListadoDeAlumnosPorMateria lam = new ListadoDeAlumnosPorMateria();
+        ListadoDeAlumnosPorMateria lam = new ListadoDeAlumnosPorMateria(ad, md, id);
         lam.setVisible(true);
         escritorio.add(lam);
         escritorio.moveToFront(lam);

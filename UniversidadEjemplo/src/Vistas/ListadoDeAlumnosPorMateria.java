@@ -1,49 +1,35 @@
-
 package Vistas;
 
 import AccesoADatos.AlumnoData;
-<<<<<<< HEAD
 import AccesoADatos.InscripcionData;
 import AccesoADatos.MateriaData;
+
 import Entidades.Alumno;
-=======
-import AccesoADatos.MateriaData;
->>>>>>> e1a75ff09cfecaf608c2791e8e322f867e46621e
 import Entidades.Materia;
+
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
-<<<<<<< HEAD
+
 import javax.swing.table.DefaultTableModel;
-=======
-
-
-
->>>>>>> e1a75ff09cfecaf608c2791e8e322f867e46621e
 
 public class ListadoDeAlumnosPorMateria extends javax.swing.JInternalFrame {
 
-    private AlumnoData alumno = new AlumnoData();
-    private MateriaData materias = new MateriaData();
-<<<<<<< HEAD
-    private InscripcionData inscripciones = new InscripcionData();
-    DefaultTableModel modelo = new DefaultTableModel();
-    List<Materia> materiasList = materias.ListarMaterias();
+    private AlumnoData ad;
+    private MateriaData md;
 
-=======
-    
-    
->>>>>>> e1a75ff09cfecaf608c2791e8e322f867e46621e
-    public ListadoDeAlumnosPorMateria() {
-     
+    private InscripcionData id;
+    DefaultTableModel modelo = new DefaultTableModel();
+    List<Materia> materiasList;
+
+    public ListadoDeAlumnosPorMateria(AlumnoData ad, MateriaData md, InscripcionData id) {
+        this.ad = ad;
+        this.md = md;
+        this.id = id;
         initComponents();
+        materiasList = md.ListarMaterias();
         cargarCabecera();
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e1a75ff09cfecaf608c2791e8e322f867e46621e
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -122,32 +108,30 @@ public class ListadoDeAlumnosPorMateria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCMateriasActionPerformed
-<<<<<<< HEAD
+
         String materiaSeleccionada = (String) jCMaterias.getSelectedItem();
+
+        int idMateria = 0;
 
         if (materiaSeleccionada != null) {
 
             for (Materia materia : materiasList) {
                 if (materiaSeleccionada.equals(materia.getNombre())) {
 
-                    int idMateria = materia.getIdMateria();
-
-                    List<Alumno> alumnos = inscripciones.obtenerAlumnosXMateria(idMateria);
-
-                    llenarJTable(alumnos);
-
+                    idMateria = materia.getIdMateria();
+                    
                     break;
                 }
             }
+
+            if (idMateria != 0) {
+                List<Alumno> alumnos = id.obtenerAlumnosXMateria(idMateria);
+      
+
+                llenarJTable(alumnos);
+            }
         }
-=======
-         String materiaSeleccionada = (String) jCMaterias.getSelectedItem();
-       if (materiaSeleccionada != null) {
-        
-        
-    }
-        
->>>>>>> e1a75ff09cfecaf608c2791e8e322f867e46621e
+
     }//GEN-LAST:event_jCMateriasActionPerformed
 
 
@@ -159,8 +143,8 @@ public class ListadoDeAlumnosPorMateria extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTAlumnosXMateria;
     // End of variables declaration//GEN-END:variables
-<<<<<<< HEAD
-private void cargarCabecera() {
+
+    private void cargarCabecera() {
 
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         for (Materia materia : materiasList) {
@@ -170,6 +154,13 @@ private void cargarCabecera() {
 
         jCMaterias.setModel(model);
 
+        modelo.addColumn("ID");
+        modelo.addColumn("DNI");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+
+        jTAlumnosXMateria.setModel(modelo);
+
     }
 
     private void llenarJTable(List<Alumno> alumnos) {
@@ -177,30 +168,30 @@ private void cargarCabecera() {
         modelo.setRowCount(0);
 
         for (Alumno alumno : alumnos) {
-            Object[] filaDatos = {
-                alumno.getIdAlumno(),
+            modelo.addRow(new Object[]{
                 alumno.getNombre(),
                 alumno.getApellido(),
-                alumno.getDni(),
-                alumno.getFechaNac()
+                alumno.getDni()
 
-            };
+            });
 
-            modelo.addRow(filaDatos);
-        }
-=======
+        };
 
-    private void cargarCabecera() {
-        List<Materia> materiasList = materias.ListarMaterias();
-    
-    DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-    for (Materia materia : materiasList) {
-        model.addElement(materia.getNombre()); 
-    }
-    
-    jCMaterias.setModel(model);
-        
->>>>>>> e1a75ff09cfecaf608c2791e8e322f867e46621e
     }
 
 }
+
+//     for (Materia materia : materiasList) {
+//                if (materiaSeleccionada.equals(materia.getNombre())) {
+//
+//                    int idMateria = materia.getIdMateria();
+//
+//                    List<Alumno> alumnos = inscripciones.obtenerAlumnosXMateria(idMateria);
+//                    System.out.println(idMateria + "id materia");
+//                    
+//                    
+//                    llenarJTable(alumnos);
+//
+//                    break;
+//                }
+//            }

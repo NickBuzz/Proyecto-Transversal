@@ -218,8 +218,8 @@ public class InscripcionData {
 
         PreparedStatement ps;
         try {
-            String sql = "SELECT * alumno FROM alumno INNER JOIN inscripcion"
-                    + "ON alumno.idAlumno= inscripcion.idAlumno"
+            String sql = "SELECT * FROM alumno INNER JOIN inscripcion "
+                    + "ON alumno.idAlumno= inscripcion.idAlumno "
                     + "WHERE inscripcion.idMateria=?";
             ps = con.prepareStatement(sql);
             ps.setInt(1, idMateria);
@@ -233,9 +233,9 @@ public class InscripcionData {
                 alum.setFechaNac(rs.getDate("fechaNac").toLocalDate());
                 alumnos.add(alum);
             }
-
+            System.out.println("entre al try");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion" + ex.getMessage());
         }
         return alumnos;
     }
