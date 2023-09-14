@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vistas;
 
-/**
- *
- * @author Usuario
- */
+import AccesoADatos.MateriaData;
+import Entidades.Materia;
+import javax.swing.JOptionPane;
+
 public class CargaDeMaterias extends javax.swing.JInternalFrame {
 
     /**
@@ -49,6 +44,11 @@ public class CargaDeMaterias extends javax.swing.JInternalFrame {
         jlMaterias.setText("Materias");
 
         jBBuscar.setText("Buscar");
+        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarActionPerformed(evt);
+            }
+        });
 
         jlCodigo.setText("Codigo:");
 
@@ -59,6 +59,11 @@ public class CargaDeMaterias extends javax.swing.JInternalFrame {
         });
 
         jBEliminar.setText("Eliminar");
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
 
         jlNombre.setText("Nombre:");
 
@@ -72,12 +77,20 @@ public class CargaDeMaterias extends javax.swing.JInternalFrame {
         jlEstado.setText("Estado");
 
         jBGuardar.setText("Guardar");
+        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarActionPerformed(evt);
+            }
+        });
 
         jlAno.setText("Año:");
 
         jBSalir.setText("Salir");
-
-        jREstado.setText("Inactivo");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,12 +166,100 @@ public class CargaDeMaterias extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
-        // TODO add your handling code here:
+        
+        jTCodigo.setText("");
+        jTNombre.setText("");
+        jTAño.setText("");
+        
     }//GEN-LAST:event_jBNuevoActionPerformed
 
     private void jTCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTCodigoActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+
+        dispose();
+
+    }//GEN-LAST:event_jBSalirActionPerformed
+
+    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
+
+        MateriaData buscar = new MateriaData();
+
+        try {
+
+            int id = Integer.parseInt(jTCodigo.getText());
+            Materia materia = buscar.buscarMateria(id);
+            if (materia != null) {
+
+                JOptionPane.showMessageDialog(null, materia);
+            }
+
+        } catch (NumberFormatException ex) {
+
+            JOptionPane.showMessageDialog(null, "Por favor recuerde ingresar solo numeros enteros en Codigo");
+
+        }
+
+
+    }//GEN-LAST:event_jBBuscarActionPerformed
+
+    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
+
+        MateriaData eliminar = new MateriaData();
+
+        try {
+
+            int id = Integer.parseInt(jTCodigo.getText());
+            eliminar.eliminarMateria(id);
+
+        } catch (NumberFormatException ex) {
+
+            JOptionPane.showMessageDialog(null, "Por favor ingrese solo numeros enteros en 'Codigo'");
+
+        }
+
+    }//GEN-LAST:event_jBEliminarActionPerformed
+
+    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
+
+        boolean resultado;
+        MateriaData guardar = new MateriaData();
+        Materia materia = new Materia();
+
+        try {
+
+            materia.setNombre(jTNombre.getText());
+            materia.setAnioMateria(Integer.parseInt(jTAño.getText()));
+            materia.setActivo(jREstado.isSelected());
+            try {
+
+                materia.setIdMateria(Integer.parseInt(jTCodigo.getText()));
+                resultado = true;
+
+            } catch (NumberFormatException ex) {
+
+                resultado = false;
+
+            }
+            if (resultado) {
+
+                guardar.modificarMateria(materia);
+
+            } else {
+
+                guardar.guardarMateria(materia);
+
+            }
+
+        } catch (NumberFormatException ex) {
+
+            JOptionPane.showMessageDialog(null, "Por favor ingrese solo numeros enteros en 'Año'");
+
+        }
+
+    }//GEN-LAST:event_jBGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
