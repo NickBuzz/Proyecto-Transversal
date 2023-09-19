@@ -104,7 +104,7 @@ public class InscripcionData {
         List<Inscripcion> inscripcion = new ArrayList<>();
 
         try {
-            String sql = "SELECT * FROM inscripcion WHERE idAlumno=?";
+            String sql = "SELECT * FROM inscripcion WHERE idAlumno= ? ";
 
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idAlumno);
@@ -113,15 +113,22 @@ public class InscripcionData {
             while (rs.next()) {
                 Inscripcion insc = new Inscripcion();
                 insc.setIdIncripcion(rs.getInt("idInscripto"));
-                insc.setAlumno(aluData.buscarAlumno(rs.getInt("idAlumno")));
-                insc.setMateria(matData.buscarMateria(rs.getInt("idMateria")));
+                Alumno alu=aluData.buscarAlumno(rs.getInt("idAlumno"));
+              
+                    
+                Materia mat=matData.buscarMateria(rs.getInt("idMateria"));
+                insc.setAlumno(alu);
+                insc.setMateria(mat);
+                
+               // insc.setAlumno(aluData.buscarAlumno(rs.getInt("idAlumno")));
+               // insc.setMateria(matData.buscarMateria(rs.getInt("idMateria")));
 
                 insc.setNota(rs.getDouble("nota"));
                 inscripcion.add(insc);
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,"Eror al ingresar a la tabla inscripcion" +ex.getMessage());
         }
         return inscripcion;
 
