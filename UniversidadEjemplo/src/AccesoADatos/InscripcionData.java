@@ -102,45 +102,24 @@ public class InscripcionData {
 
     public List<Inscripcion> obtenerInscripcionesPorAlumno(int idAlumno) {
         List<Inscripcion> inscripcion = new ArrayList<>();
-        String sql = "SELECT * FROM inscripcion WHERE idAlumno = ?";
         try {
-<<<<<<< Updated upstream
             String sql = "SELECT * FROM inscripcion WHERE idAlumno= ? ";
 
-=======
->>>>>>> Stashed changes
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idAlumno);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Inscripcion insc = new Inscripcion();
                 insc.setIdIncripcion(rs.getInt("idInscripto"));
-<<<<<<< Updated upstream
-                Alumno alu=aluData.buscarAlumno(rs.getInt("idAlumno"));
-              
-                    
-                Materia mat=matData.buscarMateria(rs.getInt("idMateria"));
-                insc.setAlumno(alu);
-                insc.setMateria(mat);
-                
-               // insc.setAlumno(aluData.buscarAlumno(rs.getInt("idAlumno")));
-               // insc.setMateria(matData.buscarMateria(rs.getInt("idMateria")));
-
-=======
                 insc.setAlumno(aluData.buscarAlumno(rs.getInt("idAlumno")));
                 insc.setMateria(matData.buscarMateria(rs.getInt("idMateria")));
->>>>>>> Stashed changes
                 insc.setNota(rs.getDouble("nota"));
                 inscripcion.add(insc);
             }
             rs.close();
             ps.close();
         } catch (SQLException ex) {
-<<<<<<< Updated upstream
             JOptionPane.showMessageDialog(null,"Eror al ingresar a la tabla inscripcion" +ex.getMessage());
-=======
-            JOptionPane.showMessageDialog(null, "error al acceder a la tabla inscripcion");
->>>>>>> Stashed changes
         }
         return inscripcion;
 
