@@ -170,6 +170,7 @@ public class CargaDeMaterias extends javax.swing.JInternalFrame {
         jTCodigo.setText("");
         jTNombre.setText("");
         jTAño.setText("");
+        jREstado.setSelected(false);
         
     }//GEN-LAST:event_jBNuevoActionPerformed
 
@@ -193,7 +194,10 @@ public class CargaDeMaterias extends javax.swing.JInternalFrame {
             Materia materia = buscar.buscarMateria(id);
             if (materia != null) {
 
-                JOptionPane.showMessageDialog(null, materia);
+                jTNombre.setText(materia.getNombre());
+                jTAño.setText(Integer.toString(materia.getAnioMateria()));
+                jREstado.setSelected(materia.isActivo());
+
             }
 
         } catch (NumberFormatException ex) {
