@@ -7,6 +7,7 @@ package Vistas;
 
 import AccesoADatos.AlumnoData;
 import Entidades.Alumno;
+import java.awt.AWTException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -247,6 +248,7 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
+        int buscarDni = alumno.getDni();
         if (cbEstado.isSelected()) {
             int dni = Integer.parseInt(jtDocumento.getText());
             String ape = jtApellido.getText();
@@ -254,7 +256,13 @@ public class CargaDeAlumnos extends javax.swing.JInternalFrame {
             boolean act = cbEstado.isSelected();
             LocalDate dat = dcFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             alumno = new Alumno(dni, ape, nom, dat, act);
-            ad.guardarAlumno(alumno);
+            Alumno chekAlumno = ad.buscarAlumnoPorDni(buscarDni);
+            if (chekAlumno == null){
+                ad.guardarAlumno(alumno);
+            }else{
+                alumno.setIdAlumno(chekAlumno.getIdAlumno());
+                ad.modificarAlumno(alumno);
+            }            
             limpiarCampos();
             jbGuardar.setEnabled(false);
         }
