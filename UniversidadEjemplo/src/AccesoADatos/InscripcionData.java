@@ -48,32 +48,53 @@ public class InscripcionData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se a podido acceder a la tabla inscripcion");
         }
-//        String sql = "INSERT INTO inscripcion (idAlumno, idMateria) VALUES (?, ?)";
+//try {
+//    // Verificar si ya existe un registro de inscripción para el alumno y la materia
+//    String selectSql = "SELECT idInscripcion FROM inscripcion WHERE idAlumno = ? AND idMateria = ?";
+//    PreparedStatement selectPs = con.prepareStatement(selectSql);
+//    selectPs.setInt(1, insc.getAlumno().getIdAlumno());
+//    selectPs.setInt(2, insc.getMateria().getIdMateria());
+//    ResultSet selectRs = selectPs.executeQuery();
 //
-//        try {
-//            PreparedStatement ps = con.prepareStatement(sql);
+//    if (selectRs.next()) {
+//        // Ya existe un registro, actualizar la nota en lugar de insertar uno nuevo
+//        String updateSql = "UPDATE inscripcion SET nota = ? WHERE idInscripcion = ?";
+//        PreparedStatement updatePs = con.prepareStatement(updateSql);
+//        updatePs.setDouble(1, insc.getNota());
+//        updatePs.setInt(2, selectRs.getInt("idInscripcion"));
+//        int updateResult = updatePs.executeUpdate();
 //
-//            Alumno alumno = new Alumno();
-//            Materia materia = new Materia();
-//            
-//            int idAlumno = alumno.getIdAlumno();
-//            int idMateria = materia.getIdMateria();
-//            
-//            ps.setInt(1, idAlumno);
-//            ps.setInt(2, idMateria);
-//
-//            int filasAfectadas = ps.executeUpdate();
-//
-//            if (filasAfectadas > 0) {
-//                System.out.println("Inscripción guardada exitosamente.");
-//            } else {
-//                System.out.println("No se pudo guardar la inscripción.");
-//            }
-//
-//            ps.close();
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Error al guardar la inscripción: " + ex.getMessage());
+//        if (updateResult > 0) {
+//            System.out.println("Nota actualizada con éxito");
+//        } else {
+//            System.out.println("No se pudo actualizar la nota");
 //        }
+//        updatePs.close();
+//    } else {
+//        // No existe un registro, realizar la inserción como lo estás haciendo
+//        String insertSql = "INSERT INTO inscripcion (idAlumno, idMateria, nota) VALUES (?, ?, ?)";
+//        PreparedStatement insertPs = con.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS);
+//        insertPs.setInt(1, insc.getAlumno().getIdAlumno());
+//        insertPs.setInt(2, insc.getMateria().getIdMateria());
+//        insertPs.setDouble(3, insc.getNota());
+//        int insertResult = insertPs.executeUpdate();
+//
+//        if (insertResult > 0) {
+//            ResultSet rs = insertPs.getGeneratedKeys();
+//            if (rs.next()) {
+//                insc.setIdIncripcion(rs.getInt(1));
+//                System.out.println("Inscripción guardada con éxito");
+//            }
+//        } else {
+//            System.out.println("No se pudo guardar la inscripción");
+//        }
+//        insertPs.close();
+//    }
+//    selectPs.close();
+//} catch (SQLException ex) {
+//    JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla inscripcion");
+//}
+
     }
 
     public List<Inscripcion> obtenerInscripciones() {
