@@ -15,11 +15,10 @@ import org.mariadb.jdbc.Statement;
 
 public class MateriaData {
 
-    private Connection con = null;
+    private Connection con = null; 
 
     public MateriaData() {
-        con = Conexion.getConexion();
-
+        con = Conexion.getConexion(); 
     }
 
     public void guardarMateria(Materia materia) {
@@ -105,7 +104,7 @@ public class MateriaData {
     public void eliminarMateria(int id) {
         String sql = "UPDATE materia SET estado=0 WHERE idMateria=? AND estado=1";
         try {
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql); //prepara la sentencia para enviar a la base 
             ps.setInt(1, id);
             int fila = ps.executeUpdate();
             if (fila >= 1) {
